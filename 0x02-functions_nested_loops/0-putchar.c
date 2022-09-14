@@ -2,11 +2,14 @@
 
 /**
  * main - print putchar
- * Return: always 0
+ *
+ * Description: prints _putchar
+ *
+ * Return: 0 (Success)
  */
 int main(void)
 {
-	_putchar('_');
+	_putchar(");
 	_putchar('p');
 	_putchar('u');
 	_putchar('t');
