@@ -1,33 +1,30 @@
 #include "main.h"
-
 /**
- * cap_string - capitalizes all word of a string
- * @str: the string
- * Return: str with it's words capitalized
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
  */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i, j;
-	char s[] =  {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int count = 0, i;
+	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] -= 32;
-	i = 1;
-	while (str[i] != '\0')
+	if (*(s + count) >= 97 && *(s + count) <= 122)
+		*(s + count) = *(s + count) - 32;
+	count++;
+	while (*(s + count) != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		for (i = 0; i < 13; i++)
 		{
-			for (j = 0; j < 13; j++)
+			if (*(s + count) == sep_words[i])
 			{
-				if (str[i - 1] == s[j])
-				{
-					str[i] -= 32;
-				}
+				if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+					*(s + (count + 1)) = *(s + (count + 1)) - 32;
+				break;
 			}
 		}
-		i++;
+		count++;
 	}
-
-	return (str);
+	return (s);
 }
